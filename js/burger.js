@@ -1,14 +1,15 @@
-const menuElem = document.querySelector('.menu');
-const humburgerElem = document.querySelector('.humburger-menu');
+export default function burger() {
+  const menuElem = document.querySelector('.menu');
+  const humburgerElem = document.querySelector('.humburger-menu');
 
-const handlerMenu = event => {
-  const target = event.target
-  const parent = target.closest('.menu');
-  if((!parent && target !== humburgerElem) ||
-    target.classList.contains('menu-list__link')) {
-      toggleMenu()
+  const handlerMenu = event => {
+    const target = event.target
+    const parent = target.closest('.menu');
+    if((!parent && target !== humburgerElem) ||
+      target.classList.contains('menu-list__link')) {
+        toggleMenu()
+    }
   }
-}
   
   const toggleMenu = () => {
     menuElem.classList.toggle('menu-active');
@@ -19,7 +20,8 @@ const handlerMenu = event => {
     } else {
       document.body.removeEventListener('click', handlerMenu)
     }
-};
+  };
 
+  humburgerElem.addEventListener('click', toggleMenu);
 
-humburgerElem.addEventListener('click', toggleMenu);
+}

@@ -860,4 +860,8 @@ a {
     padding-top: 190px;
   }
 }
+.button:disabled {
+  background-image: none;
+  background-color: #ccc;
+}
 /*# sourceMappingURL=style.min.css.map */

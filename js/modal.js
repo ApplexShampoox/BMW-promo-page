@@ -1,3 +1,9 @@
+import blockScrolled from './blockScrolled.js';
+
+const {disableScroll, enableScroll} = blockScrolled;
+
+export default function modal() {
+
 const designBlockElem = document.querySelector('.design-block');
 const modalElem = document.querySelector('.modal');
 
@@ -11,20 +17,22 @@ const closeModal = () => {
   enableScroll();
 };
 
-  designBlockElem.addEventListener('click', event => {
-    const target = event.target;
+designBlockElem.addEventListener('click', event => {
+  const target = event.target;
 
-    if(target.matches('.more')) {
-      openModal();
-    }
-  });
+  if(target.matches('.more')) {
+    openModal();
+  }
+});
 
 modalElem.addEventListener('click', (event) => {
   const target = event.target;
 
-  if(target.classList.contains('overlay') ||
-     target.classList.contains('modal__close')) {
-    closeModal();      
+  if( target.matches('.overlay, .modal__close')) {
+    closeModal();     
     }
 
 })
+
+}
+
